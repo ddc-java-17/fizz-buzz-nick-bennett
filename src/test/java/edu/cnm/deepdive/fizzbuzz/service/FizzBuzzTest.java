@@ -16,19 +16,19 @@ class FizzBuzzTest {
   @ParameterizedTest
   @ValueSource(ints = {3, 102, -3})
   void evaluate_fizz(int number) {
-    assertEquals("fizz", FizzBuzz.evaluate(number));
+    assertEquals(FizzBuzz.FIZZ_RESULT, FizzBuzz.evaluate(number));
   }
 
   @ParameterizedTest
   @ValueSource(ints = {5, 100, -5})
   void evaluate_buzz(int number) {
-    assertEquals("buzz", FizzBuzz.evaluate(number));
+    assertEquals(FizzBuzz.BUZZ_RESULT, FizzBuzz.evaluate(number));
   }
 
   @ParameterizedTest
   @ValueSource(ints = {0, 15, 105, -15})
   void evaluate_fizzBuzz(int number) {
-    assertEquals("fizzbuzz", FizzBuzz.evaluate(number));
+    assertEquals(FizzBuzz.FIZZ_BUZZ_RESULT, FizzBuzz.evaluate(number));
   }
 
 }
