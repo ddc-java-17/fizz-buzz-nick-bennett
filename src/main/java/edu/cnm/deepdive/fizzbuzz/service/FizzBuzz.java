@@ -1,21 +1,23 @@
 package edu.cnm.deepdive.fizzbuzz.service;
 
+import java.util.EnumSet;
+import java.util.Set;
+
 public class FizzBuzz {
 
-  static final String FIZZ_RESULT = "fizz";
-  static final String BUZZ_RESULT = "buzz";
-  static final String FIZZ_BUZZ_RESULT = FIZZ_RESULT + BUZZ_RESULT;
+  public static Set<Value> evaluate(int number) {
+    Set<Value> result = EnumSet.noneOf(Value.class);
+    if (number % 3 == 0) {
+      result.add(Value.FIZZ);
+    }
+    if (number % 5 == 0) {
+      result.add(Value.BUZZ);
+    }
+    return result;
+  }
 
-  public static String evaluate(int number) {
-    int remainder = Math.abs(number % 15);
-
-    return switch (remainder) {
-      case 0 -> FIZZ_BUZZ_RESULT;
-      case 3, 6, 9, 12 -> FIZZ_RESULT;
-      case 5, 10 -> BUZZ_RESULT;
-      default -> String.valueOf(number);
-    };
-
+  public enum Value {
+    FIZZ, BUZZ
   }
 
 }
